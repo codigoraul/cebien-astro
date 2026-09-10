@@ -1,0 +1,178 @@
+---
+import Base from '../layouts/Base.astro';
+import Encabezado from '../components/Encabezado.astro';
+import LlamadoContacto from '../components/LlamadoContacto.astro';
+import { sitio } from '../data/sitio';
+
+const equipo = [
+  'Médicos Psiquiatras',
+  'Médicos Integrales',
+  'Psicólogos',
+  'Terapeutas Ocupacionales',
+  'Kinesiólogos',
+  'Fonoaudiólogos',
+];
+---
+
+<Base
+  titulo="Quiénes somos"
+  descripcion="El Centro de Salud y Bienestar Cebien es un centro ambulatorio de salud mental en Concepción, con atención GES a través de RedGesam y atención particular (Fonasa e Isapres)."
+  ruta="/nosotros"
+>
+  <Encabezado
+    antetitulo="Nosotros"
+    titulo="Quiénes somos"
+    bajada="Un centro ambulatorio de salud mental con un equipo interdisciplinario al cuidado de su bienestar."
+    imagen="/img/encabezados/nosotros.webp"
+  />
+
+  <section class="seccion">
+    <div class="contenedor nosotros">
+      <div class="nosotros__texto">
+        <p class="destacado">
+          El Centro de Salud y Bienestar CEBIEN es un Centro Ambulatorio de Salud Mental, dedicado a
+          la atención de personas con condiciones de salud mental contempladas en la Ley de Garantías
+          Explícitas en Salud – GES a través de convenio con REDGESAM y atenciones de la especialidad
+          de manera Particular (Fonasa e Isapres).
+        </p>
+        <p>
+          Contamos con un gran equipo de los mejores profesionales al cuidado de su Salud Mental.
+          Especialistas certificados y registrados en la Superintendencia de Salud.
+        </p>
+        <ul class="disciplinas" aria-label="Disciplinas del equipo">
+          {equipo.map((d) => <li>{d}</li>)}
+        </ul>
+        <p>
+          <a class="boton boton--borde" href="/equipo">Conocer al equipo</a>
+        </p>
+      </div>
+
+      <figure class="nosotros__imagen">
+        <picture>
+          <source media="(max-width: 700px)" srcset="/img/atencion-personalizada-sm.webp" />
+          <img
+            src="/img/atencion-personalizada.webp"
+            width="1040"
+            height="811"
+            alt="Pacientes siendo atendidos en la recepción del centro"
+            loading="lazy"
+          />
+        </picture>
+      </figure>
+    </div>
+  </section>
+
+  <section class="seccion seccion--alt">
+    <div class="contenedor">
+      <div class="grilla grilla--2 valores">
+        <article class="tarjeta">
+          <span class="antetitulo">Nuestra visión</span>
+          <p>
+            Ser una empresa líder en la entrega de soluciones de Salud Mental a las personas y
+            comunidad, aportando al fortalecimiento de las políticas públicas; utilizando un modelo de
+            atención integral, con profesionales competentes, que proveen servicios de calidad, de
+            manera oportuna, con respeto y basados en evidencia científica.
+          </p>
+        </article>
+        <article class="tarjeta">
+          <span class="antetitulo">Nuestros principios</span>
+          <ul class="principios">
+            <li>
+              Brindar una atención personalizada, a través de un trato cálido, respetuoso,
+              interdisciplinario y bajo estándares de seguridad y calidad probados.
+            </li>
+            <li>Ofrecer una mejora continua de la calidad e innovación.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <div class="contenedor convenios">
+      <div class="seccion__intro">
+        <span class="antetitulo">Convenios</span>
+        <h2>{sitio.convenios.titulo}</h2>
+        <p>{sitio.convenios.texto}</p>
+      </div>
+      <ul class="convenios__lista">
+        <li>
+          <strong>RedGesam</strong>
+          <span>Prestadores de servicios de RedGesam, con convenio con todas las isapres abiertas de la industria.</span>
+        </li>
+        <li>
+          <strong>Particular</strong>
+          <span>Atención particular (FONASA).</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <LlamadoContacto />
+</Base>
+
+<style>
+  .nosotros {
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .nosotros p { max-width: 60ch; }
+  .destacado { font-size: 1.12rem; color: var(--tinta); }
+  .nosotros__imagen {
+    margin: 0;
+    border-radius: var(--radio-lg);
+    overflow: hidden;
+    box-shadow: var(--sombra);
+    line-height: 0;
+  }
+  .nosotros__imagen img { width: 100%; height: auto; }
+
+  .disciplinas {
+    list-style: none;
+    margin: 0 0 28px;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .disciplinas li {
+    margin: 0;
+    padding: 7px 14px;
+    border-radius: 999px;
+    background: var(--azul-50);
+    color: var(--azul-700);
+    font-size: .9rem;
+    font-weight: 500;
+  }
+
+  .valores .antetitulo { display: block; margin-bottom: 12px; }
+  .valores p { margin: 0; color: var(--texto-suave); }
+  .principios { margin: 0; padding-left: 20px; color: var(--texto-suave); }
+  .principios li { margin-bottom: 10px; }
+  .principios li:last-child { margin-bottom: 0; }
+
+  .convenios {
+    display: grid;
+    grid-template-columns: 1.2fr .9fr;
+    gap: 52px;
+    align-items: start;
+  }
+  .convenios .seccion__intro { margin-bottom: 0; }
+  .convenios__lista { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+  .convenios__lista li {
+    background: #fff;
+    border: 1px solid var(--borde);
+    border-left: 4px solid var(--azul);
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin: 0;
+  }
+  .convenios__lista strong { display: block; color: var(--tinta); margin-bottom: 3px; }
+  .convenios__lista span { font-size: .92rem; color: var(--texto-suave); }
+
+  @media (max-width: 900px) {
+    .nosotros, .convenios { grid-template-columns: 1fr; gap: 36px; }
+  }
+</style>

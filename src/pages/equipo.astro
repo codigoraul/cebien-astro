@@ -1,0 +1,58 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Encabezado from '../components/Encabezado.astro';
+import TarjetaProfesional from '../components/TarjetaProfesional.astro';
+import LlamadoContacto from '../components/LlamadoContacto.astro';
+
+const equipo = (await getCollection('equipo')).sort((a, b) => a.data.orden - b.data.orden);
+const areas = [...new Set(equipo.map((p) => p.data.area))].map((area) => ({
+  area,
+  personas: equipo.filter((p) => p.data.area === area),
+}));
+const clinicos = equipo.filter((p) => p.data.area !== 'Administración').length;
+---
+
+<Base
+  titulo="Equipo de profesionales"
+  descripcion="Conozca al equipo del Centro Cebien: médicos psiquiatras, médicos integrales, psicólogos, terapeutas ocupacionales, kinesiólogos y fonoaudiólogos."
+  ruta="/equipo"
+>
+  <Encabezado
+    antetitulo="Equipo"
+    titulo="Nuestros profesionales"
+    bajada={`Un equipo de ${clinicos} profesionales clínicos certificados y registrados en la Superintendencia de Salud, más el personal administrativo que acompaña cada atención.`}
+    imagen="/img/encabezados/equipo.webp"
+  />
+
+  <section class="seccion">
+    <div class="contenedor">
+      {areas.map((grupo) => (
+        <div class="bloque">
+          <h2>{grupo.area}</h2>
+          <div class="grilla grilla--4">
+            {grupo.personas.map((p) => (
+              <TarjetaProfesional nombre={p.data.nombre} cargo={p.data.cargo} foto={p.data.foto} />
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <LlamadoContacto
+    titulo="¿Quiere atenderse con alguno de nuestros especialistas?"
+    texto="Escríbanos y le indicamos la disponibilidad de horas según la especialidad que necesita."
+  />
+</Base>
+
+<style>
+  .bloque { margin-bottom: 54px; }
+  .bloque:last-child { margin-bottom: 0; }
+  .bloque h2 {
+    font-size: 1.35rem;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--borde);
+  }
+</style>

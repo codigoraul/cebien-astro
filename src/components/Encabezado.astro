@@ -1,0 +1,63 @@
+---
+interface Props {
+  antetitulo?: string;
+  titulo: string;
+  bajada?: string;
+  /** Imagen decorativa que se funde con el fondo por la derecha */
+  imagen?: string;
+  /** object-position de la imagen (por defecto centrada) */
+  posicion?: string;
+}
+const { antetitulo, titulo, bajada, imagen, posicion = 'center' } = Astro.props;
+---
+
+<section class:list={['encabezado', imagen && 'encabezado--con-imagen']}>
+  {imagen && (
+    <div class="encabezado__imagen" aria-hidden="true">
+      <img src={imagen} alt="" width="1600" height="372" loading="eager" style={`object-position:${posicion}`} />
+    </div>
+  )}
+
+  <div class="contenedor encabezado__texto">
+    {antetitulo && <span class="antetitulo">{antetitulo}</span>}
+    <h1>{titulo}</h1>
+    {bajada && <p>{bajada}</p>}
+  </div>
+</section>
+
+<style>
+  .encabezado {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(150deg, var(--azul-50), #ffffff 65%, var(--verde-50));
+    border-bottom: 1px solid var(--borde);
+    padding-block: clamp(44px, 5.5vw, 72px);
+  }
+  .encabezado h1 { font-size: clamp(1.7rem, 1.25rem + 1.5vw, 2.3rem); margin-bottom: .35em; }
+  .encabezado p { max-width: 66ch; color: var(--texto-suave); font-size: 1.06rem; margin: 0; }
+
+  .encabezado__texto { position: relative; z-index: 1; }
+  .encabezado--con-imagen .encabezado__texto p { max-width: 52ch; }
+
+  /* La imagen ocupa la mitad derecha y se desvanece hacia el texto.
+     La máscara evita tener que recortar la foto: el degradado la funde
+     con el fondo de la franja, sea cual sea su color. */
+  .encabezado__imagen {
+    position: absolute;
+    inset: 0 0 0 auto;
+    width: 52%;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, .55) 38%, #000 78%);
+    mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, .55) 38%, #000 78%);
+    pointer-events: none;
+  }
+  .encabezado__imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: .9;
+  }
+
+  @media (max-width: 900px) {
+    .encabezado__imagen { display: none; }
+  }
+</style>

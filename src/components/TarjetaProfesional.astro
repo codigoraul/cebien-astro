@@ -1,0 +1,58 @@
+---
+interface Props {
+  nombre: string;
+  cargo: string;
+  foto?: string;
+}
+const { nombre, cargo, foto } = Astro.props;
+const iniciales = nombre
+  .split(' ')
+  .filter(Boolean)
+  .slice(0, 2)
+  .map((p) => p[0])
+  .join('')
+  .toUpperCase();
+---
+
+<article class="profesional">
+  <div class="profesional__foto">
+    {foto
+      ? <img src={foto} alt={`Fotografía de ${nombre}`} width="220" height="220" loading="lazy" />
+      : <span class="profesional__iniciales" aria-hidden="true">{iniciales}</span>}
+  </div>
+  <h3>{nombre}</h3>
+  <p>{cargo}</p>
+</article>
+
+<style>
+  .profesional {
+    text-align: center;
+    background: #fff;
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+    padding: 26px 18px;
+    transition: border-color .2s ease, box-shadow .2s ease;
+  }
+  .profesional:hover { border-color: var(--azul); box-shadow: var(--sombra); }
+
+  .profesional__foto {
+    width: 104px;
+    height: 104px;
+    margin: 0 auto 16px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: linear-gradient(140deg, var(--azul-100), var(--verde-100));
+    display: grid;
+    place-items: center;
+  }
+  .profesional__foto img { width: 100%; height: 100%; object-fit: cover; }
+  .profesional__iniciales {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--azul-700);
+    letter-spacing: .02em;
+  }
+
+  .profesional h3 { font-size: 1.02rem; margin-bottom: .25em; }
+  .profesional p { font-size: .89rem; color: var(--texto-suave); margin: 0; }
+</style>

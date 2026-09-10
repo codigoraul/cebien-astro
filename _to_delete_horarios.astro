@@ -1,0 +1,92 @@
+---
+import Base from '../layouts/Base.astro';
+import Encabezado from '../components/Encabezado.astro';
+import LlamadoContacto from '../components/LlamadoContacto.astro';
+import { sitio } from '../data/sitio';
+---
+
+<Base
+  titulo="Horarios de atención"
+  descripcion={`Horarios de atención del Centro Cebien en ${sitio.direccion.calle}, ${sitio.direccion.ciudad}. Agende su hora por teléfono o WhatsApp.`}
+  ruta="/horarios"
+>
+  <Encabezado
+    antetitulo="Horarios"
+    titulo="Horarios de atención"
+    bajada="Comuníquese con nosotros para agendar su hora y confirmar disponibilidad."
+    imagen="/img/encabezados/horarios.webp"
+  />
+
+  <section class="seccion">
+    <div class="contenedor horarios">
+      <div>
+        <table class="tabla-horarios">
+          <caption class="sr-solo">Horarios de atención del centro</caption>
+          <tbody>
+            {sitio.horarios.map((h) => (
+              <tr>
+                <th scope="row">{h.dia}</th>
+                <td>{h.horario}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+
+        <h2>Cómo agendar</h2>
+        <p>
+          Las horas se agendan por teléfono, por WhatsApp o escribiendo a nuestro correo. Indíquenos
+          qué atención necesita y su previsión de salud para confirmarle disponibilidad y cobertura.
+        </p>
+      </div>
+
+      <aside class="ficha">
+        <h2>Contacto directo</h2>
+        <dl>
+          <dt>Dirección</dt>
+          <dd>{sitio.direccion.calle}<br />{sitio.direccion.ciudad}</dd>
+          <dt>Teléfono fijo</dt>
+          <dd><a href={`tel:${sitio.telefono.fijoLink}`}>{sitio.telefono.fijo}</a></dd>
+          <dt>Celular y WhatsApp</dt>
+          <dd><a href={`tel:${sitio.telefono.celularLink}`}>{sitio.telefono.celular}</a></dd>
+          <dt>Correo</dt>
+          <dd><a href={`mailto:${sitio.email}`}>{sitio.email}</a></dd>
+        </dl>
+        <a class="boton boton--primario" href={`https://wa.me/${sitio.telefono.whatsapp}`} target="_blank" rel="noopener">
+          Agendar por WhatsApp
+        </a>
+      </aside>
+    </div>
+  </section>
+
+  <LlamadoContacto />
+</Base>
+
+<style>
+  .horarios { display: grid; grid-template-columns: 1fr 330px; gap: 56px; align-items: start; }
+  .horarios h2 { font-size: 1.25rem; margin-top: 40px; }
+
+  .tabla-horarios { width: 100%; border-collapse: collapse; }
+  .tabla-horarios th,
+  .tabla-horarios td { text-align: left; padding: 16px 4px; border-bottom: 1px solid var(--borde); }
+  .tabla-horarios th { color: var(--tinta); font-weight: 600; }
+  .tabla-horarios td { color: var(--texto-suave); text-align: right; }
+  .tabla-horarios tr:first-child th,
+  .tabla-horarios tr:first-child td { border-top: 1px solid var(--borde); }
+
+  .ficha {
+    background: var(--fondo-alt);
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+    padding: 26px;
+  }
+  .ficha h2 { font-size: 1.12rem; margin-top: 0; }
+  .ficha dl { margin: 0 0 22px; font-size: .93rem; }
+  .ficha dt { font-weight: 600; color: var(--tinta); margin-top: 14px; }
+  .ficha dt:first-child { margin-top: 0; }
+  .ficha dd { margin: 2px 0 0; color: var(--texto-suave); }
+  .ficha .boton { width: 100%; }
+
+  @media (max-width: 900px) {
+    .horarios { grid-template-columns: 1fr; gap: 38px; }
+  }
+</style>

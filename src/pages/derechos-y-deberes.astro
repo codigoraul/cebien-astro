@@ -1,0 +1,82 @@
+---
+import Base from '../layouts/Base.astro';
+import Encabezado from '../components/Encabezado.astro';
+import { sitio } from '../data/sitio';
+---
+
+<Base
+  titulo="Derechos y deberes del paciente"
+  descripcion="Afiche oficial del Ministerio de Salud con los derechos y deberes de las personas en su atención de salud, según la Ley 20.584."
+  ruta="/derechos-y-deberes"
+>
+  <Encabezado
+    antetitulo="Información al paciente"
+    titulo="Derechos y deberes del paciente"
+    bajada="La Ley 20.584 regula los derechos y deberes de las personas en su atención de salud. Este es el afiche oficial del Ministerio de Salud."
+  />
+
+  <section class="seccion">
+    <div class="contenedor">
+      <figure class="afiche">
+        <a href="/img/derechos-deberes-minsal.webp" target="_blank" rel="noopener" aria-label="Ver el afiche en tamaño completo">
+          <picture>
+            <source media="(max-width: 700px)" srcset="/img/derechos-deberes-minsal-sm.webp" />
+            <img
+              src="/img/derechos-deberes-minsal.webp"
+              width="1200"
+              height="1162"
+              alt="Afiche del Ministerio de Salud con los derechos y deberes de los pacientes según la Ley 20.584"
+            />
+          </picture>
+        </a>
+        <figcaption>
+          Extracto de la Ley N.º 20.584 de Derechos y Deberes de los Pacientes, Ministerio de Salud,
+          Gobierno de Chile. Haga clic sobre el afiche para verlo en tamaño completo.
+        </figcaption>
+      </figure>
+
+      <div class="aviso">
+        <h2>Consultas, reclamos y sugerencias</h2>
+        <p>
+          Toda persona puede reclamar sus derechos ante el establecimiento que la atiende. Si desea
+          presentar una consulta, un reclamo o una sugerencia sobre la atención recibida, puede
+          hacerlo en la recepción del centro, al correo
+          <a href={`mailto:${sitio.email}`}>{sitio.email}</a> o al teléfono
+          <a href={`tel:${sitio.telefono.fijoLink}`}>{sitio.telefono.fijo}</a>. Si la respuesta no es
+          satisfactoria, podrá recurrir a la Superintendencia de Salud.
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .afiche { margin: 0 auto 48px; max-width: 1000px; }
+  .afiche a {
+    display: block;
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+    overflow: hidden;
+    box-shadow: var(--sombra);
+    line-height: 0;
+    transition: box-shadow .2s ease;
+  }
+  .afiche a:hover { box-shadow: var(--sombra-alta); }
+  .afiche img { width: 100%; height: auto; }
+  .afiche figcaption {
+    margin-top: 14px;
+    text-align: center;
+    font-size: .88rem;
+    color: var(--texto-suave);
+  }
+
+  .aviso {
+    max-width: 1000px;
+    margin-inline: auto;
+    background: var(--fondo-alt);
+    border: 1px solid var(--borde);
+    border-radius: var(--radio-lg);
+    padding: 32px;
+  }
+  .aviso h2 { font-size: 1.2rem; }
+</style>

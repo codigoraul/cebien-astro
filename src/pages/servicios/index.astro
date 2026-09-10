@@ -1,0 +1,85 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Encabezado from '../../components/Encabezado.astro';
+import LlamadoContacto from '../../components/LlamadoContacto.astro';
+
+const servicios = (await getCollection('servicios')).sort((a, b) => a.data.orden - b.data.orden);
+
+const categorias = [...new Set(servicios.map((s) => s.data.categoria))].map((categoria) => ({
+  categoria,
+  items: servicios.filter((s) => s.data.categoria === categoria),
+}));
+---
+
+<Base
+  titulo="Servicios"
+  descripcion="Prestaciones del Centro Cebien en Concepción: psiquiatría, medicina integral, psicología, terapia ocupacional, kinesiología y fonoaudiología."
+  ruta="/servicios"
+>
+  <Encabezado
+    antetitulo="Servicios"
+    titulo="Nuestras prestaciones"
+    bajada="Atención ambulatoria de salud mental organizada en seis especialidades. Para conocer disponibilidad, valores y cobertura de cada prestación, comuníquese con nosotros."
+    imagen="/img/encabezados/servicios.webp"
+    posicion="right center"
+  />
+
+  <section class="seccion">
+    <div class="contenedor">
+      <div class="grilla grilla--2 bloques">
+        {categorias.map((c) => (
+          <div class="bloque">
+            <h2>{c.categoria}</h2>
+            <ul class="prestaciones">
+              {c.items.map((s) => <li>{s.data.nombre}</li>)}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <LlamadoContacto
+    titulo="¿Necesita alguna de estas prestaciones?"
+    texto="Escríbanos indicando qué atención busca y le confirmamos disponibilidad de horas, valores y las formas de cobertura que le corresponden."
+  />
+</Base>
+
+<style>
+  .bloques { gap: 30px; }
+
+  .bloque {
+    background: #fff;
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+    padding: 30px;
+  }
+  .bloque h2 {
+    font-size: 1.2rem;
+    color: var(--azul-700);
+    margin-bottom: 18px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--borde);
+  }
+
+  .prestaciones { list-style: none; margin: 0; padding: 0; }
+  .prestaciones li {
+    position: relative;
+    padding-left: 26px;
+    margin-bottom: 11px;
+    font-size: .99rem;
+    color: var(--tinta);
+  }
+  .prestaciones li:last-child { margin-bottom: 0; }
+  .prestaciones li::before {
+    content: '';
+    position: absolute;
+    left: 2px;
+    top: .62em;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--verde);
+  }
+</style>

@@ -1,0 +1,40 @@
+---
+import Base from '../layouts/Base.astro';
+import { sitio } from '../data/sitio';
+---
+
+<Base
+  titulo="Mensaje enviado"
+  descripcion="Hemos recibido su mensaje. Le responderemos a la brevedad."
+  ruta="/gracias"
+>
+  <section class="seccion centrado">
+    <div class="contenedor">
+      <div class="marca-ok" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+        </svg>
+      </div>
+      <h1>Recibimos su mensaje</h1>
+      <p class="texto-suave" style="max-width:54ch;margin:0 auto 30px;">
+        Gracias por escribirnos. Le responderemos a la brevedad dentro de nuestro horario de
+        atención. Si su consulta es urgente, puede llamarnos al {sitio.telefono.fijo}.
+      </p>
+      <a class="boton boton--primario" href="/">Volver al inicio</a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .marca-ok {
+    width: 74px;
+    height: 74px;
+    margin: 0 auto 26px;
+    border-radius: 50%;
+    background: var(--verde-100);
+    color: var(--verde-700);
+    display: grid;
+    place-items: center;
+  }
+  .marca-ok svg { width: 34px; height: 34px; }
+</style>

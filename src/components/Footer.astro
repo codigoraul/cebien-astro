@@ -1,0 +1,99 @@
+---
+import { sitio, navegacion } from '../data/sitio';
+const anio = new Date().getFullYear();
+---
+
+<footer class="pie">
+  <div class="contenedor pie__interior">
+    <div class="pie__marca">
+      <img src="/img/logo-cebien-blanco.webp" width="220" height="62" alt={sitio.nombre} loading="lazy" />
+      <p>{sitio.descripcion}</p>
+    </div>
+
+    <div>
+      <h3>Navegación</h3>
+      <ul class="pie__lista">
+        {navegacion.map((item) => (
+          <li><a href={item.href}>{item.texto}</a></li>
+        ))}
+      </ul>
+    </div>
+
+    <div>
+      <h3>Contacto</h3>
+      <ul class="pie__lista">
+        <li>{sitio.direccion.calle}<br />{sitio.direccion.ciudad}</li>
+        <li><a href={`tel:${sitio.telefono.fijoLink}`}>{sitio.telefono.fijo}</a></li>
+        <li><a href={`tel:${sitio.telefono.celularLink}`}>{sitio.telefono.celular}</a></li>
+        <li><a href={`mailto:${sitio.email}`}>{sitio.email}</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3>Convenios</h3>
+      <ul class="pie__lista">
+        <li>Prestador de <a href={sitio.convenios.red.url} target="_blank" rel="noopener">RedGesam</a><br /><span class="pie__horario">convenio con todas las isapres abiertas</span></li>
+        <li>Particular<br /><span class="pie__horario">FONASA</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="contenedor pie__legal">
+    <p>© {anio} {sitio.nombre}. Todos los derechos reservados.</p>
+    <p>
+      <a href="/derechos-y-deberes">Derechos y deberes del paciente</a>
+      <span aria-hidden="true">·</span>
+      <a href="https://disenopaginas.cl" target="_blank" rel="noopener">Diseño web: diseñopaginas.cl</a>
+    </p>
+  </div>
+</footer>
+
+<style>
+  .pie {
+    background: var(--tinta);
+    color: #b9c3cd;
+    padding-top: 62px;
+    font-size: .94rem;
+  }
+  .pie__interior {
+    display: grid;
+    gap: 40px;
+    grid-template-columns: 1.6fr 1fr 1.2fr 1.2fr;
+    padding-bottom: 48px;
+  }
+  .pie h3 {
+    color: #fff;
+    font-size: .82rem;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .pie__marca img { width: 200px; margin-bottom: 20px; }
+  .pie__marca p { max-width: 34ch; margin: 0; }
+  .pie__lista { list-style: none; margin: 0; padding: 0; }
+  .pie__lista li { margin-bottom: 12px; }
+  .pie__horario { color: #7f8b97; }
+  .pie a { color: #b9c3cd; }
+  .pie a:hover { color: var(--azul); text-decoration: none; }
+
+  .pie__legal {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-block: 22px;
+    border-top: 1px solid rgba(255,255,255,.1);
+    font-size: .86rem;
+    color: #7f8b97;
+  }
+  .pie__legal p { margin: 0; }
+  .pie__legal span { margin-inline: 8px; }
+
+  @media (max-width: 900px) {
+    .pie__interior { grid-template-columns: repeat(2, 1fr); gap: 34px; }
+  }
+  @media (max-width: 560px) {
+    .pie__interior { grid-template-columns: 1fr; }
+    .pie__legal { flex-direction: column; }
+  }
+</style>

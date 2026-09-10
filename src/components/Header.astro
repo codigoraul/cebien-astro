@@ -1,0 +1,185 @@
+---
+import { sitio, navegacion } from '../data/sitio';
+const actual = Astro.url.pathname.replace(/\/$/, '') || '/';
+const esActivo = (href: string) =>
+  href === '/' ? actual === '/' : actual === href || actual.startsWith(href + '/');
+---
+
+<header class="cabecera">
+  <div class="barra-superior">
+    <div class="contenedor barra-superior__interior">
+      <span class="barra-superior__item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></svg>
+        {sitio.direccion.calle}, {sitio.direccion.ciudad}
+      </span>
+      <span class="barra-superior__enlaces">
+        <a href={`tel:${sitio.telefono.fijoLink}`}>{sitio.telefono.fijo}</a>
+        <a href={`mailto:${sitio.email}`}>{sitio.email}</a>
+      </span>
+    </div>
+  </div>
+
+  <div class="contenedor cabecera__interior">
+    <a href="/" class="marca" aria-label={`${sitio.nombre} — inicio`}>
+      <img
+        src="/img/logo-cebien.webp"
+        width="240"
+        height="67"
+        alt={sitio.nombre}
+        fetchpriority="high"
+      />
+    </a>
+
+    <button class="hamburguesa" aria-expanded="false" aria-controls="menu-principal">
+      <span class="sr-solo">Abrir menú</span>
+      <span class="hamburguesa__linea"></span>
+      <span class="hamburguesa__linea"></span>
+      <span class="hamburguesa__linea"></span>
+    </button>
+
+    <nav id="menu-principal" class="navegacion" aria-label="Menú principal">
+      <ul>
+        {navegacion.map((item) => (
+          <li>
+            <a href={item.href} aria-current={esActivo(item.href) ? 'page' : undefined}>
+              {item.texto}
+            </a>
+          </li>
+        ))}
+      </ul>
+      <a
+        class="boton boton--primario navegacion__cta"
+        href={`https://wa.me/${sitio.telefono.whatsapp}`}
+        target="_blank"
+        rel="noopener"
+      >
+        Agendar hora
+      </a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .cabecera {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: #fff;
+    border-bottom: 1px solid var(--borde);
+  }
+
+  .barra-superior {
+    background: var(--tinta);
+    color: #cdd6df;
+    font-size: .82rem;
+  }
+  .barra-superior__interior {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    min-height: 38px;
+    flex-wrap: wrap;
+  }
+  .barra-superior__item { display: inline-flex; align-items: center; gap: 7px; }
+  .barra-superior svg { width: 15px; height: 15px; color: var(--verde); }
+  .barra-superior__enlaces { display: flex; gap: 20px; }
+  .barra-superior a { color: #cdd6df; }
+  .barra-superior a:hover { color: #fff; text-decoration: none; }
+
+  .cabecera__interior {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    min-height: 82px;
+  }
+
+  .marca img { width: 200px; height: auto; }
+
+  .navegacion { display: flex; align-items: center; gap: 30px; }
+  .navegacion ul {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .navegacion li { margin: 0; }
+  .navegacion ul a {
+    position: relative;
+    color: var(--tinta);
+    font-size: .97rem;
+    font-weight: 500;
+    padding-block: 6px;
+  }
+  .navegacion ul a:hover { color: var(--azul-600); text-decoration: none; }
+  .navegacion ul a[aria-current='page'] { color: var(--azul-600); font-weight: 600; }
+  .navegacion ul a[aria-current='page']::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; bottom: -2px;
+    height: 2px;
+    background: var(--azul);
+    border-radius: 2px;
+  }
+
+  .hamburguesa {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    background: none;
+    border: 1px solid var(--borde);
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  .hamburguesa__linea {
+    display: block;
+    width: 20px;
+    height: 2px;
+    margin-inline: auto;
+    background: var(--tinta);
+    border-radius: 2px;
+    transition: transform .2s ease, opacity .2s ease;
+  }
+
+  @media (max-width: 940px) {
+    .barra-superior__enlaces { display: none; }
+    .hamburguesa { display: flex; }
+    .cabecera__interior { min-height: 68px; flex-wrap: wrap; }
+    .marca img { width: 168px; }
+
+    .navegacion {
+      display: none;
+      width: 100%;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      padding-bottom: 18px;
+    }
+    .navegacion.abierto { display: flex; }
+    .navegacion ul { flex-direction: column; align-items: stretch; gap: 0; }
+    .navegacion ul a {
+      display: block;
+      padding: 13px 4px;
+      border-bottom: 1px solid var(--borde);
+    }
+    .navegacion ul a[aria-current='page']::after { display: none; }
+    .navegacion__cta { margin-top: 16px; }
+  }
+</style>
+
+<script>
+  const boton = document.querySelector<HTMLButtonElement>('.hamburguesa');
+  const menu = document.getElementById('menu-principal');
+  boton?.addEventListener('click', () => {
+    const abierto = menu?.classList.toggle('abierto') ?? false;
+    boton.setAttribute('aria-expanded', String(abierto));
+    boton.querySelector('.sr-solo')!.textContent = abierto ? 'Cerrar menú' : 'Abrir menú';
+  });
+</script>

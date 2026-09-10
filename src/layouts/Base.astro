@@ -1,0 +1,91 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { sitio } from '../data/sitio';
+
+interface Props {
+  titulo: string;
+  descripcion: string;
+  /** Ruta canónica sin dominio, ej. "/servicios" */
+  ruta?: string;
+}
+
+const { titulo, descripcion, ruta } = Astro.props;
+const canonica = new URL(ruta ?? Astro.url.pathname, Astro.site ?? 'https://cebien.cl');
+const tituloCompleto = titulo === sitio.nombre ? titulo : `${titulo} | ${sitio.nombreCorto}`;
+
+const datosEstructurados = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalClinic',
+  name: sitio.nombre,
+  alternateName: 'Centro Cebien',
+  description: sitio.descripcion,
+  url: 'https://cebien.cl',
+  telephone: sitio.telefono.celular,
+  email: sitio.email,
+  medicalSpecialty: 'Psychiatric',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: sitio.direccion.calle,
+    addressLocality: sitio.direccion.ciudad,
+    addressRegion: sitio.direccion.region,
+    addressCountry: 'CL',
+  },
+};
+---
+
+<!doctype html>
+<html lang="es-CL">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{tituloCompleto}</title>
+    <meta name="description" content={descripcion} />
+    <link rel="canonical" href={canonica.href} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={sitio.nombre} />
+    <meta property="og:title" content={tituloCompleto} />
+    <meta property="og:description" content={descripcion} />
+    <meta property="og:url" content={canonica.href} />
+    <meta property="og:locale" content="es_CL" />
+    <meta name="twitter:card" content="summary" />
+
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script type="application/ld+json" set:html={JSON.stringify(datosEstructurados)} />
+  </head>
+  <body>
+    <a href="#contenido" class="saltar">Saltar al contenido</a>
+    <Header />
+    <main id="contenido">
+      <slot />
+    </main>
+    <Footer />
+
+    <style>
+      .saltar {
+        position: absolute;
+        left: -9999px;
+        top: 0;
+        z-index: 100;
+        background: var(--azul-600);
+        color: #fff;
+        padding: 12px 20px;
+        border-radius: 0 0 10px 0;
+      }
+      .saltar:focus {
+        left: 0;
+      }
+    </style>
+  </body>
+</html>

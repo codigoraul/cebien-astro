@@ -1,0 +1,44 @@
+---
+import { sitio } from '../data/sitio';
+interface Props { titulo?: string; texto?: string; }
+const {
+  titulo = '¿Necesita agendar una hora?',
+  texto = 'Escríbanos por WhatsApp o llámenos y le orientamos sobre la atención que necesita y las formas de cobertura disponibles.',
+} = Astro.props;
+---
+
+<section class="llamado">
+  <div class="contenedor llamado__interior">
+    <div>
+      <h2>{titulo}</h2>
+      <p>{texto}</p>
+    </div>
+    <div class="llamado__acciones">
+      <a class="boton boton--claro" href={`https://wa.me/${sitio.telefono.whatsapp}`} target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.6-.8-2.7-1.5-3.8-3.4-.3-.5.3-.5.8-1.4.1-.2 0-.4 0-.5s-.7-1.6-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5 1.9.8 2.6.9 3.5.7.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2m0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2"/></svg>
+        Escribir por WhatsApp
+      </a>
+      <a class="boton boton--claro" href={`tel:${sitio.telefono.fijoLink}`}>
+        Llamar al {sitio.telefono.fijo}
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .llamado {
+    background: linear-gradient(115deg, var(--azul-700) 0%, var(--azul-600) 55%, var(--verde-700) 100%);
+    color: #fff;
+    padding-block: clamp(46px, 6vw, 68px);
+  }
+  .llamado__interior {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 34px;
+    flex-wrap: wrap;
+  }
+  .llamado h2 { color: #fff; margin-bottom: .35em; }
+  .llamado p { max-width: 52ch; margin: 0; color: rgba(255,255,255,.86); }
+  .llamado__acciones { display: flex; gap: 12px; flex-wrap: wrap; }
+</style>

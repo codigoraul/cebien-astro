@@ -1,0 +1,416 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import LlamadoContacto from '../components/LlamadoContacto.astro';
+import { sitio } from '../data/sitio';
+
+const servicios = (await getCollection('servicios')).sort((a, b) => a.data.orden - b.data.orden);
+
+const especialidades = [
+  { nombre: 'Psiquiatría', texto: 'Evaluación diagnóstica, indicación de tratamiento y controles con médicos psiquiatras certificados.' },
+  { nombre: 'Psicología', texto: 'Psicoterapia individual, de pareja y familiar, evaluación psicológica y neuropsicológica.' },
+  { nombre: 'Medicina integral', texto: 'Atención médica general con mirada integral sobre la salud física y mental.' },
+  { nombre: 'Terapia ocupacional', texto: 'Rehabilitación psicosocial, estimulación cognitiva y reinserción sociolaboral.' },
+  { nombre: 'Kinesiología', texto: 'Evaluación funcional, kinesiterapia motora y respiratoria.' },
+  { nombre: 'Fonoaudiología', texto: 'Lenguaje, habla, voz y deglución, en niños y adultos.' },
+];
+---
+
+<Base
+  titulo={sitio.nombre}
+  descripcion="Centro ambulatorio de salud mental en Concepción. Psiquiatría, psicología, terapia ocupacional, kinesiología y fonoaudiología. Atención GES a través de RedGesam y particular."
+  ruta="/"
+>
+  <section class="portada">
+    <div class="contenedor portada__interior">
+      <div class="portada__texto">
+        <span class="antetitulo">Centro ambulatorio de salud mental · Concepción</span>
+        <h1>Su salud mental, en manos de un equipo que la cuida</h1>
+        <p>
+          Somos un centro ambulatorio dedicado a la atención de personas con condiciones de salud
+          mental, con especialistas certificados y registrados en la Superintendencia de Salud.
+          Atendemos prestaciones GES a través de RedGesam y también de forma particular.
+        </p>
+        <div class="portada__acciones">
+          <a class="boton boton--primario" href={`https://wa.me/${sitio.telefono.whatsapp}`} target="_blank" rel="noopener">
+            Agendar una hora
+          </a>
+          <a class="boton boton--borde" href="/servicios">Conocer los servicios</a>
+        </div>
+      </div>
+
+      <figure class="portada__imagen">
+        <picture>
+          <source media="(max-width: 700px)" srcset="/img/consulta-psicologica-sm.webp" />
+          <img
+            src="/img/consulta-psicologica.webp"
+            width="1120"
+            height="806"
+            alt="Sala de espera del centro con pacientes y equipo médico revisando un examen"
+            fetchpriority="high"
+          />
+        </picture>
+      </figure>
+    </div>
+
+    <div class="contenedor">
+      <ul class="portada__datos">
+        <li>
+          <strong>26</strong>
+          <span>profesionales y personal de apoyo</span>
+        </li>
+        <li>
+          <strong>6</strong>
+          <span>especialidades bajo un mismo techo</span>
+        </li>
+        <li>
+          <strong>GES</strong>
+          <span>vía RedGesam, con todas las isapres abiertas</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <div class="contenedor">
+      <div class="quienes">
+        <div>
+          <span class="antetitulo">Quiénes somos</span>
+          <h2>Un modelo de atención integral, con respeto y evidencia científica</h2>
+          <p>
+            El Centro de Salud y Bienestar Cebien es un centro ambulatorio de salud mental dedicado a
+            la atención de personas con condiciones contempladas en la Ley de Garantías Explícitas en
+            Salud. Contamos con médicos psiquiatras, médicos integrales, psicólogos, terapeutas
+            ocupacionales, kinesiólogos y fonoaudiólogos.
+          </p>
+          <p class="texto-suave">
+            Cada persona es acompañada por el equipo completo: cuando el tratamiento requiere más de
+            una disciplina, la coordinación ocurre dentro del centro y no queda en manos del paciente.
+          </p>
+        </div>
+        <figure class="quienes__imagen">
+          <picture>
+            <source media="(max-width: 700px)" srcset="/img/atencion-personalizada-sm.webp" />
+            <img
+              src="/img/atencion-personalizada.webp"
+              width="1040"
+              height="811"
+              alt="Pacientes siendo atendidos en la recepción del centro"
+              loading="lazy"
+            />
+          </picture>
+        </figure>
+      </div>
+
+      <div class="grilla grilla--3">
+        <article class="tarjeta">
+          <h3>Nuestra visión</h3>
+          <p class="texto-suave">
+            Ser una empresa líder en la entrega de soluciones de salud mental a las personas y la
+            comunidad, aportando al fortalecimiento de las políticas públicas mediante un modelo de
+            atención integral y basado en evidencia.
+          </p>
+        </article>
+        <article class="tarjeta">
+          <h3>Atención personalizada</h3>
+          <p class="texto-suave">
+            Un trato cálido, respetuoso e interdisciplinario, bajo estándares de seguridad y calidad
+            probados, en el que cada persona es acompañada por el equipo completo.
+          </p>
+        </article>
+        <article class="tarjeta">
+          <h3>Mejora continua</h3>
+          <p class="texto-suave">
+            Buscamos de forma permanente la mejora de la calidad y la innovación en nuestras
+            prestaciones, con profesionales competentes y certificados.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion seccion--alt">
+    <div class="contenedor">
+      <div class="seccion__intro">
+        <span class="antetitulo">Especialidades</span>
+        <h2>Seis especialidades coordinadas en un mismo lugar</h2>
+        <p>
+          Cuando el tratamiento requiere más de una disciplina, la coordinación ocurre dentro del
+          mismo equipo, sin que la persona tenga que repetir su historia en cada consulta.
+        </p>
+      </div>
+
+      <div class="grilla grilla--3">
+        {especialidades.map((e) => (
+          <article class="tarjeta especialidad">
+            <h3>{e.nombre}</h3>
+            <p class="texto-suave">{e.texto}</p>
+          </article>
+        ))}
+      </div>
+
+      <p class="centrado" style="margin-top: 38px;">
+        <a class="boton boton--borde" href="/servicios">Ver las {servicios.length} prestaciones</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <div class="contenedor convenios">
+      <div>
+        <span class="antetitulo">Convenios</span>
+        <h2>{sitio.convenios.titulo}</h2>
+        <p>{sitio.convenios.texto}</p>
+        <p class="texto-suave">
+          RedGesam es una red nacional que mantiene convenio con las isapres abiertas del sistema
+          para la atención de salud mental. Cebien es uno de sus prestadores en Concepción, por lo
+          que las personas derivadas por su isapre a través de esa red se atienden con nosotros.
+        </p>
+      </div>
+      <ul class="convenios__lista">
+        <li>
+          <strong>Atención GES</strong>
+          <span>Prestaciones garantizadas por ley, a través de RedGesam.</span>
+        </li>
+        <li>
+          <strong>Isapres</strong>
+          <span>Cobertura mediante el convenio de RedGesam con las isapres abiertas.</span>
+        </li>
+        <li>
+          <strong>Particular y Fonasa</strong>
+          <span>Atención particular con la documentación para su reembolso.</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="contenedor logos">
+      <div class="logos__red">
+        <a href={sitio.convenios.red.url} target="_blank" rel="noopener" aria-label={`Sitio web de ${sitio.convenios.red.nombre}`}>
+          <img src={sitio.convenios.red.logo} width="400" height="160" alt={`Logo de ${sitio.convenios.red.nombre}`} loading="lazy" />
+        </a>
+        <p>Prestador de <strong>RedGesam</strong>, red de salud mental con convenio con todas las isapres abiertas de la industria.</p>
+      </div>
+      <ul class="logos__isapres" aria-label="Isapres con convenio a través de RedGesam">
+        {sitio.convenios.isapres.map((i) => (
+          <li>
+            <img src={i.logo} width="400" height="160" alt={`Logo de ${i.nombre}`} loading="lazy" />
+          </li>
+        ))}
+        <li class="logos__fonasa">
+          <span>Particular</span>
+          <strong>FONASA</strong>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="seccion seccion--alt">
+    <div class="contenedor">
+      <div class="seccion__intro seccion__intro--centrado">
+        <span class="antetitulo">Información al paciente</span>
+        <h2>Derechos y deberes del paciente</h2>
+        <p>
+          La Ley 20.584 establece los derechos y deberes de las personas en su atención de salud.
+          Este es el afiche oficial del Ministerio de Salud, que exhibimos en nuestras dependencias.
+        </p>
+      </div>
+
+      <figure class="afiche">
+        <a href="/img/derechos-deberes-minsal.webp" target="_blank" rel="noopener" aria-label="Ver el afiche en tamaño completo">
+          <picture>
+            <source media="(max-width: 700px)" srcset="/img/derechos-deberes-minsal-sm.webp" />
+            <img
+              src="/img/derechos-deberes-minsal.webp"
+              width="1200"
+              height="1162"
+              alt="Afiche del Ministerio de Salud con los derechos y deberes de los pacientes según la Ley 20.584"
+              loading="lazy"
+            />
+          </picture>
+        </a>
+        <figcaption>
+          Extracto de la Ley N.º 20.584. Haga clic sobre el afiche para verlo en tamaño completo.
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <LlamadoContacto />
+</Base>
+
+<style>
+  .portada {
+    background: linear-gradient(160deg, var(--azul-50) 0%, #ffffff 48%, var(--verde-50) 100%);
+    border-bottom: 1px solid var(--borde);
+    padding-block: clamp(52px, 7vw, 88px);
+  }
+  .portada__interior {
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    gap: 56px;
+    align-items: center;
+    margin-bottom: 46px;
+  }
+  .portada__texto p { font-size: 1.08rem; max-width: 56ch; }
+  .portada__acciones { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 30px; }
+
+  .portada__imagen {
+    margin: 0;
+    border-radius: var(--radio-lg);
+    overflow: hidden;
+    box-shadow: var(--sombra-alta);
+    line-height: 0;
+  }
+  .portada__imagen img { width: 100%; height: auto; }
+
+  .portada__datos {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  .portada__datos li {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background: #fff;
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+    padding: 20px 24px;
+    margin: 0;
+    box-shadow: var(--sombra);
+  }
+  .portada__datos strong {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--azul-600);
+    line-height: 1;
+    min-width: 62px;
+  }
+  .portada__datos span { font-size: .93rem; color: var(--texto-suave); }
+
+  .quienes {
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    gap: 56px;
+    align-items: center;
+    margin-bottom: 48px;
+  }
+  .quienes p { max-width: 58ch; }
+  .quienes__imagen {
+    margin: 0;
+    border-radius: var(--radio-lg);
+    overflow: hidden;
+    box-shadow: var(--sombra);
+    line-height: 0;
+  }
+  .quienes__imagen img { width: 100%; height: auto; }
+
+  .afiche {
+    margin: 0;
+    max-width: 1000px;
+    margin-inline: auto;
+  }
+  .afiche a {
+    display: block;
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+    overflow: hidden;
+    box-shadow: var(--sombra);
+    line-height: 0;
+    transition: box-shadow .2s ease;
+  }
+  .afiche a:hover { box-shadow: var(--sombra-alta); }
+  .afiche img { width: 100%; height: auto; }
+  .afiche figcaption {
+    margin-top: 14px;
+    text-align: center;
+    font-size: .88rem;
+    color: var(--texto-suave);
+  }
+
+  .especialidad h3 { color: var(--azul-700); }
+
+  .convenios {
+    display: grid;
+    grid-template-columns: 1.2fr .9fr;
+    gap: 52px;
+    align-items: start;
+  }
+  .convenios__lista { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+  .convenios__lista li {
+    background: #fff;
+    border: 1px solid var(--borde);
+    border-left: 4px solid var(--azul);
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin: 0;
+  }
+  .convenios__lista strong { display: block; color: var(--tinta); margin-bottom: 3px; }
+  .convenios__lista span { font-size: .92rem; color: var(--texto-suave); }
+
+  .logos { margin-top: 52px; }
+  .logos__red {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+    background: #fff;
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+    padding: 22px 28px;
+    margin-bottom: 18px;
+    box-shadow: var(--sombra);
+  }
+  .logos__red a { flex: 0 0 200px; line-height: 0; }
+  .logos__red img { width: 200px; height: auto; }
+  .logos__red p { margin: 0; font-size: .95rem; color: var(--texto-suave); }
+  .logos__red strong { color: var(--tinta); }
+
+  .logos__isapres {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  .logos__isapres li {
+    margin: 0;
+    background: #fff;
+    border: 1px solid var(--borde);
+    border-radius: 10px;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 104px;
+    transition: box-shadow .2s ease, border-color .2s ease;
+  }
+  .logos__isapres img {
+    width: 100%;
+    max-width: 190px;
+    height: auto;
+    transition: transform .2s ease;
+  }
+  .logos__isapres li:hover { box-shadow: var(--sombra); border-color: var(--azul-100, var(--borde)); }
+  .logos__isapres li:hover img { transform: scale(1.04); }
+  .logos__fonasa {
+    flex-direction: column;
+    gap: 2px;
+    border-left: 4px solid var(--verde) !important;
+  }
+  .logos__fonasa span { font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--texto-suave); }
+  .logos__fonasa strong { font-size: 1.25rem; color: var(--azul-700); }
+
+  @media (max-width: 900px) {
+    .portada__interior,
+    .quienes,
+    .convenios { grid-template-columns: 1fr; gap: 38px; }
+    .logos__isapres { grid-template-columns: repeat(2, 1fr); }
+    .logos__red { flex-direction: column; text-align: center; }
+    .logos__red a { flex-basis: auto; }
+    .portada__datos { grid-template-columns: 1fr; }
+  }
+</style>
