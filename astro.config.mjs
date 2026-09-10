@@ -9,5 +9,7 @@ export default defineConfig({
   build: {
     // cPanel sirve /servicios/index.html en /servicios sin redirecciones raras
     format: 'directory',
+    // CSS embebido en cada HTML: evita el parpadeo sin estilos (FOUC) al navegar
+    inlineStylesheets: 'always',
   },
 });
