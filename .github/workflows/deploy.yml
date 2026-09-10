@@ -25,13 +25,21 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Deploy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./dist/
-          server-dir: /prueba/
-          timeout: 60000
-          log-level: verbose
+      - name: Deploy via FTP (lftp)
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          sudo apt-get update && sudo apt-get install -y lftp
+          lftp -c "
+          set ftp:ssl-allow no;
+          set net:max-retries 5;
+          set net:reconnect-interval-base 5;
+          set net:reconnect-interval-multiplier 1;
+          set ftp:passive-mode true;
+          set mirror:parallel-directories false;
+          open -u \"$FTP_USERNAME\",\"$FTP_PASSWORD\" \"$FTP_SERVER\";
+          mkdir -p -f prueba;
+          mirror -R --parallel=1 --verbose dist/ prueba/;
+          "
