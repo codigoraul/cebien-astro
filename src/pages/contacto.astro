@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Encabezado from '../components/Encabezado.astro';
-import { sitio } from '../data/sitio';
+import { sitio, enlaceWhatsapp } from '../data/sitio';
 ---
 
 <Base
@@ -48,7 +48,7 @@ import { sitio } from '../data/sitio';
           </li>
         </ul>
 
-        <a class="boton boton--primario" href={`https://wa.me/${sitio.telefono.whatsapp}`} target="_blank" rel="noopener">
+        <a class="boton boton--primario" href={enlaceWhatsapp} target="_blank" rel="noopener">
           Escribir por WhatsApp
         </a>
       </div>

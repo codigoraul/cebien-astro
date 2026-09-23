@@ -1,5 +1,5 @@
 ---
-import { sitio, navegacion } from '../data/sitio';
+import { sitio, navegacion, enlaceWhatsapp } from '../data/sitio';
 const actual = Astro.url.pathname.replace(/\/$/, '') || '/';
 const esActivo = (href: string) =>
   href === '/' ? actual === '/' : actual === href || actual.startsWith(href + '/');
@@ -49,7 +49,7 @@ const esActivo = (href: string) =>
       </ul>
       <a
         class="boton boton--primario navegacion__cta"
-        href={`https://wa.me/${sitio.telefono.whatsapp}`}
+        href={enlaceWhatsapp}
         target="_blank"
         rel="noopener"
       >

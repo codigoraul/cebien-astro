@@ -5,3 +5,5 @@ dist/
 .env
 .env.production
 npm-debug.log*
+_imagenes-anteriores/
+_to_delete*

@@ -48,6 +48,13 @@ export const sitio = {
   },
 } as const;
 
+/** Mensaje prellenado al abrir WhatsApp desde el sitio */
+export const mensajeWhatsapp =
+  'Hola, me contacto desde cebien.cl. Quisiera agendar una hora de atención.';
+
+/** Enlace de WhatsApp con el mensaje ya escrito (usar en todos los botones) */
+export const enlaceWhatsapp = `https://wa.me/${sitio.telefono.whatsapp}?text=${encodeURIComponent(mensajeWhatsapp)}`;
+
 export const navegacion = [
   { href: '/', texto: 'Inicio' },
   { href: '/nosotros', texto: 'Nosotros' },

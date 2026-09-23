@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import LlamadoContacto from '../components/LlamadoContacto.astro';
-import { sitio } from '../data/sitio';
+import { sitio, enlaceWhatsapp } from '../data/sitio';
 
 const servicios = (await getCollection('servicios')).sort((a, b) => a.data.orden - b.data.orden);
 
@@ -32,7 +32,7 @@ const especialidades = [
           Atendemos prestaciones GES a través de RedGesam y también de forma particular.
         </p>
         <div class="portada__acciones">
-          <a class="boton boton--primario" href={`https://wa.me/${sitio.telefono.whatsapp}`} target="_blank" rel="noopener">
+          <a class="boton boton--primario" href={enlaceWhatsapp} target="_blank" rel="noopener">
             Agendar una hora
           </a>
           <a class="boton boton--borde" href="/servicios">Conocer los servicios</a>
@@ -46,7 +46,7 @@ const especialidades = [
             src="/img/consulta-psicologica.webp"
             width="1120"
             height="806"
-            alt="Sala de espera del centro con pacientes y equipo médico revisando un examen"
+            alt="Paciente conversando con una profesional del centro en la consulta"
             fetchpriority="high"
           />
         </picture>
@@ -95,7 +95,7 @@ const especialidades = [
               src="/img/atencion-personalizada.webp"
               width="1040"
               height="811"
-              alt="Pacientes siendo atendidos en la recepción del centro"
+              alt="Profesional del centro atendiendo a una paciente en la consulta"
               loading="lazy"
             />
           </picture>
