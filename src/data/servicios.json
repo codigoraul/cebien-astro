@@ -8,18 +8,10 @@
     "descripcion": "La consulta psiquiátrica de adulto es la puerta de entrada al tratamiento en nuestro centro. En ella, un médico psiquiatra certificado realiza una evaluación clínica completa: historia del motivo de consulta, antecedentes personales y familiares, examen mental y revisión de tratamientos previos.\n\nA partir de esa evaluación se establece un diagnóstico y se propone un plan de tratamiento, que puede incluir indicación farmacológica, derivación a psicoterapia o trabajo conjunto con otros profesionales del equipo.\n\nLa primera consulta requiere más tiempo que los controles posteriores, ya que en ella se construye la historia clínica completa del paciente."
   },
   {
-    "id": "consulta-psiquiatrica-infanto-juvenil",
-    "nombre": "Consulta psiquiátrica infanto-juvenil",
-    "categoria": "Psiquiatría",
-    "orden": 2,
-    "resumen": "Atención especializada en salud mental de niños, niñas y adolescentes, con participación de la familia.",
-    "descripcion": "La atención psiquiátrica de niños, niñas y adolescentes considera el momento del desarrollo en que se encuentra el paciente, su contexto familiar y su desempeño escolar. La evaluación incluye entrevista con el paciente y con quienes lo acompañan.\n\nSe abordan dificultades emocionales y conductuales, problemas de atención y aprendizaje, ansiedad, cambios del ánimo y situaciones que afectan la vida escolar o familiar.\n\nEl trabajo con la familia es parte del tratamiento: las indicaciones se explican a los cuidadores y, cuando corresponde, se coordina con el establecimiento educacional."
-  },
-  {
     "id": "control-y-seguimiento-farmacologico",
     "nombre": "Control y seguimiento farmacológico",
     "categoria": "Psiquiatría",
-    "orden": 3,
+    "orden": 2,
     "resumen": "Controles periódicos para ajustar el tratamiento, evaluar la respuesta y monitorear efectos.",
     "descripcion": "El tratamiento en salud mental no termina con la indicación inicial. Los controles periódicos permiten evaluar cómo ha respondido la persona, ajustar dosis, cambiar o suspender fármacos y detectar a tiempo efectos no deseados.\n\nEn cada control se revisa la evolución de los síntomas, la adherencia al tratamiento y el impacto en la vida diaria: sueño, trabajo, estudios y relaciones.\n\nLa frecuencia de los controles la define el médico tratante según la etapa del tratamiento y la estabilidad del cuadro."
   },
@@ -27,7 +19,7 @@
     "id": "informes-y-evaluaciones-psiquiatricas",
     "nombre": "Informes y evaluaciones psiquiátricas",
     "categoria": "Psiquiatría",
-    "orden": 4,
+    "orden": 3,
     "resumen": "Evaluaciones e informes emitidos por médico psiquiatra para fines laborales, escolares o previsionales.",
     "descripcion": "Emitimos informes y evaluaciones psiquiátricas solicitadas por instituciones de salud, empleadores, establecimientos educacionales u organismos previsionales.\n\nEl informe se elabora sobre la base de una evaluación clínica presencial y, cuando corresponde, de la revisión de antecedentes previos y de evaluaciones complementarias del equipo.\n\nEs importante indicar al momento de agendar la hora cuál es la finalidad del informe y qué institución lo requiere, ya que de eso depende el tipo de evaluación necesaria."
   },
@@ -35,7 +27,7 @@
     "id": "consulta-medica-integral",
     "nombre": "Consulta médica integral",
     "categoria": "Medicina integral",
-    "orden": 5,
+    "orden": 4,
     "resumen": "Atención médica general con mirada integral sobre la salud física y mental de la persona.",
     "descripcion": "La consulta de medicina integral aborda la salud de la persona como un conjunto, considerando la relación entre el estado físico, el ánimo y el contexto de vida.\n\nEs una atención adecuada como primera evaluación, para el seguimiento de condiciones crónicas o cuando existen síntomas físicos asociados a un cuadro de salud mental.\n\nCuando la evaluación lo requiere, el médico integral deriva a psiquiatría o a otro profesional del equipo, manteniendo la coordinación del caso dentro del mismo centro."
   },
@@ -43,7 +35,7 @@
     "id": "control-de-salud-mental",
     "nombre": "Control de salud mental",
     "categoria": "Medicina integral",
-    "orden": 6,
+    "orden": 5,
     "resumen": "Seguimiento periódico de pacientes en tratamiento, a cargo de médico integral.",
     "descripcion": "Los controles de salud mental permiten mantener la continuidad del tratamiento entre las consultas con el especialista, revisando la evolución del cuadro y la adherencia a las indicaciones.\n\nSon especialmente útiles en tratamientos prolongados y en cuadros estabilizados, donde el objetivo es sostener los avances logrados y detectar oportunamente cualquier cambio.\n\nEl control se coordina con el resto del equipo tratante, de modo que la información clínica se mantenga actualizada en un solo lugar."
   },
@@ -51,7 +43,7 @@
     "id": "certificados-e-informes-medicos",
     "nombre": "Certificados e informes médicos",
     "categoria": "Medicina integral",
-    "orden": 7,
+    "orden": 6,
     "resumen": "Emisión de certificados médicos y documentos de respaldo para trámites de salud.",
     "descripcion": "Emitimos certificados e informes médicos derivados de la atención en nuestro centro, para presentar ante empleadores, instituciones educacionales, isapres o Fonasa.\n\nTodo documento se emite sobre la base de una atención clínica efectiva; no entregamos certificados sin evaluación previa.\n\nAl agendar, indique el tipo de documento que necesita y la institución de destino para que el equipo prepare la atención adecuada."
   },
@@ -59,23 +51,15 @@
     "id": "psicoterapia-individual-adulto",
     "nombre": "Psicoterapia individual adulto",
     "categoria": "Psicología",
-    "orden": 8,
+    "orden": 7,
     "resumen": "Proceso terapéutico personal con psicólogo clínico, en sesiones periódicas.",
     "descripcion": "La psicoterapia individual es un espacio de trabajo personal y confidencial con un psicólogo clínico, orientado a comprender y modificar aquello que genera malestar.\n\nSe trabaja sobre dificultades emocionales, ansiedad, cambios del ánimo, duelos, conflictos relacionales, estrés laboral y procesos de cambio vital.\n\nEl proceso se organiza en sesiones periódicas, habitualmente semanales o quincenales, y su duración se define en conjunto entre el paciente y el terapeuta según los objetivos acordados."
-  },
-  {
-    "id": "psicoterapia-infanto-juvenil",
-    "nombre": "Psicoterapia infanto-juvenil",
-    "categoria": "Psicología",
-    "orden": 9,
-    "resumen": "Acompañamiento psicológico para niños, niñas y adolescentes, con trabajo paralelo con la familia.",
-    "descripcion": "La psicoterapia infanto-juvenil utiliza recursos adecuados a la edad del paciente —juego, dibujo, conversación— para abordar dificultades emocionales, conductuales o de adaptación.\n\nEl trabajo incluye sesiones de orientación con los padres o cuidadores, ya que buena parte de los cambios se sostiene en el entorno familiar cotidiano.\n\nCuando la situación lo requiere, se coordina con el establecimiento educacional y con el resto del equipo tratante del centro."
   },
   {
     "id": "terapia-de-pareja-y-familiar",
     "nombre": "Terapia de pareja y familiar",
     "categoria": "Psicología",
-    "orden": 10,
+    "orden": 8,
     "resumen": "Espacio terapéutico para trabajar conflictos de convivencia, comunicación y vínculos.",
     "descripcion": "La terapia de pareja y familiar trabaja sobre el sistema de relaciones más que sobre una persona en particular. El foco está en los patrones de comunicación, los acuerdos y los conflictos que se repiten.\n\nEs un espacio adecuado ante crisis de convivencia, dificultades en la crianza, procesos de separación, o cuando el malestar de un integrante afecta al grupo completo.\n\nLas sesiones se realizan con los integrantes que participen del proceso, y el encuadre se define en la primera entrevista."
   },
@@ -83,7 +67,7 @@
     "id": "evaluacion-psicologica",
     "nombre": "Evaluación psicológica y psicodiagnóstico",
     "categoria": "Psicología",
-    "orden": 11,
+    "orden": 9,
     "resumen": "Aplicación de pruebas estandarizadas y entrevista clínica para elaborar un informe psicológico.",
     "descripcion": "La evaluación psicológica combina entrevista clínica y aplicación de pruebas estandarizadas para describir el funcionamiento emocional, cognitivo y de personalidad de la persona.\n\nSe utiliza para precisar un diagnóstico, orientar un tratamiento o responder a requerimientos escolares, laborales o previsionales.\n\nEl proceso considera habitualmente varias sesiones y culmina con la entrega de un informe escrito y una sesión de devolución de resultados."
   },
@@ -91,7 +75,7 @@
     "id": "evaluacion-neuropsicologica",
     "nombre": "Evaluación neuropsicológica",
     "categoria": "Psicología",
-    "orden": 12,
+    "orden": 10,
     "resumen": "Estudio de memoria, atención, lenguaje y funciones ejecutivas mediante pruebas específicas.",
     "descripcion": "La evaluación neuropsicológica estudia el funcionamiento cognitivo: memoria, atención, lenguaje, velocidad de procesamiento y funciones ejecutivas.\n\nEstá indicada ante sospecha de deterioro cognitivo, dificultades de atención y aprendizaje, o para precisar el impacto cognitivo de una condición neurológica o psiquiátrica.\n\nEl informe resultante orienta el tratamiento y permite definir estrategias de rehabilitación o apoyo cognitivo con el equipo del centro."
   },
@@ -99,7 +83,7 @@
     "id": "intervencion-en-crisis",
     "nombre": "Intervención en crisis",
     "categoria": "Psicología",
-    "orden": 13,
+    "orden": 11,
     "resumen": "Atención psicológica orientada a contener y estabilizar situaciones de crisis emocional.",
     "descripcion": "La intervención en crisis es una atención breve y focalizada, orientada a contener a la persona frente a un evento que sobrepasó sus recursos habituales de afrontamiento.\n\nEl objetivo es estabilizar la situación, evaluar el nivel de riesgo y establecer los pasos siguientes, que pueden incluir el ingreso a un tratamiento regular o la derivación al nivel de atención que corresponda.\n\nSi usted o alguien cercano está atravesando una emergencia de salud mental que requiere atención inmediata, comuníquese con Salud Responde al 600 360 7777 o acuda al servicio de urgencia más cercano."
   },
@@ -108,7 +92,7 @@
     "nombre": "Evaluación y entrenamiento en Actividades de la Vida Diaria (AVD / AVDV)",
     "categoria": "Terapia ocupacional",
     "subcategoria": "Área de Geriatría",
-    "orden": 14,
+    "orden": 12,
     "resumen": "Evaluación y entrenamiento de las actividades básicas e instrumentales de la vida diaria para mantener la autonomía.",
     "descripcion": "Se evalúa cómo la persona realiza sus actividades básicas (alimentación, higiene, vestuario) y las instrumentales de la vida diaria (manejo del dinero, compras, uso del teléfono, medicamentos).\n\nA partir de esa evaluación se entrenan las tareas comprometidas, con estrategias y adaptaciones que permitan mantener la mayor independencia posible.\n\nEl trabajo se coordina con la familia y con el resto del equipo tratante."
   },
@@ -117,7 +101,7 @@
     "nombre": "Estimulación Cognitiva y Mantenimiento Funcional",
     "categoria": "Terapia ocupacional",
     "subcategoria": "Área de Geriatría",
-    "orden": 15,
+    "orden": 13,
     "resumen": "Ejercitación de memoria, atención y funciones ejecutivas para preservar la funcionalidad en la vida diaria.",
     "descripcion": "La estimulación cognitiva consiste en la ejercitación sistemática de funciones como memoria, atención, orientación, lenguaje y razonamiento, mediante actividades diseñadas según el perfil de cada persona.\n\nEstá indicada en cuadros de deterioro cognitivo, tras una evaluación neuropsicológica, y como apoyo en condiciones que afectan la concentración y la organización de la vida diaria.\n\nLas sesiones son periódicas y sus objetivos se revisan de forma regular para ajustar el nivel de dificultad."
   },
@@ -126,7 +110,7 @@
     "nombre": "Prevención de Caídas y Adaptación del Hogar",
     "categoria": "Terapia ocupacional",
     "subcategoria": "Área de Geriatría",
-    "orden": 16,
+    "orden": 14,
     "resumen": "Evaluación de riesgos y recomendaciones de adaptación del entorno para prevenir caídas.",
     "descripcion": "Se identifican los factores que aumentan el riesgo de caídas: equilibrio, movilidad, uso de ayudas técnicas y condiciones del entorno.\n\nA partir de esa evaluación se entregan recomendaciones concretas de adaptación del hogar y se entrenan estrategias seguras para desplazarse y realizar las actividades cotidianas.\n\nEl objetivo es mantener la autonomía de la persona en un entorno más seguro."
   },
@@ -135,7 +119,7 @@
     "nombre": "Orientación y Psicoeducación a Cuidadores y Familia",
     "categoria": "Terapia ocupacional",
     "subcategoria": "Área de Geriatría",
-    "orden": 17,
+    "orden": 15,
     "resumen": "Acompañamiento y orientación a cuidadores y familiares de personas mayores.",
     "descripcion": "El cuidado de una persona mayor con dependencia o deterioro cognitivo implica desafíos cotidianos para la familia.\n\nEn estas sesiones se entregan herramientas prácticas de manejo, organización de rutinas y comunicación, junto con información sobre la condición de la persona.\n\nTambién se aborda el autocuidado del cuidador, para prevenir la sobrecarga."
   },
@@ -144,7 +128,7 @@
     "nombre": "Rehabilitación Psicosocial y Equilibrio Ocupacional",
     "categoria": "Terapia ocupacional",
     "subcategoria": "Salud Mental",
-    "orden": 18,
+    "orden": 16,
     "resumen": "Intervención para recuperar autonomía, rutinas y un equilibrio saludable entre actividades.",
     "descripcion": "La rehabilitación psicosocial acompaña a personas cuya condición de salud mental ha afectado su autonomía, sus rutinas o su participación social.\n\nEl trabajo se organiza en objetivos graduales: recuperar hábitos y rutinas, fortalecer habilidades sociales, retomar actividades significativas y sostener la participación en la comunidad.\n\nEs un proceso que se coordina con el tratamiento médico y psicológico, de modo que todas las intervenciones apunten en la misma dirección."
   },
@@ -153,7 +137,7 @@
     "nombre": "Gestión del Estrés, Ansiedad y Regulación Emocional",
     "categoria": "Terapia ocupacional",
     "subcategoria": "Salud Mental",
-    "orden": 19,
+    "orden": 17,
     "resumen": "Estrategias prácticas para manejar el estrés y la ansiedad en las actividades de la vida diaria.",
     "descripcion": "Desde la terapia ocupacional se trabaja la relación entre las rutinas, las actividades significativas y el bienestar emocional.\n\nSe entrenan estrategias concretas de manejo del estrés, organización del tiempo y regulación emocional, aplicadas a las situaciones cotidianas de la persona.\n\nEl proceso se coordina con el tratamiento psicológico y médico del centro."
   },
@@ -162,7 +146,7 @@
     "nombre": "Reinserción y Orientación Sociolaboral",
     "categoria": "Terapia ocupacional",
     "subcategoria": "Salud Mental",
-    "orden": 20,
+    "orden": 18,
     "resumen": "Acompañamiento para retomar o sostener la actividad laboral y formativa.",
     "descripcion": "El proceso de reinserción sociolaboral acompaña a personas que necesitan retomar su actividad laboral o formativa después de un período de tratamiento, o que requieren apoyo para sostenerla.\n\nSe trabaja sobre rutinas, tolerancia a la jornada, habilidades para el entorno laboral y estrategias frente a las dificultades propias del puesto de trabajo.\n\nCuando corresponde, se elaboran recomendaciones y se coordina con el empleador dentro de lo que la persona autorice."
   },
@@ -170,7 +154,7 @@
     "id": "evaluacion-kinesiologica",
     "nombre": "Evaluación kinesiológica",
     "categoria": "Kinesiología",
-    "orden": 21,
+    "orden": 19,
     "resumen": "Evaluación funcional del movimiento, la postura y la capacidad física.",
     "descripcion": "La evaluación kinesiológica examina la funcionalidad del movimiento: fuerza, rangos articulares, postura, marcha y capacidad física general.\n\nA partir de los hallazgos se establece un plan de tratamiento con objetivos medibles y una frecuencia de sesiones definida.\n\nEs el paso previo a cualquier intervención kinésica y permite documentar los avances a lo largo del proceso."
   },
@@ -178,7 +162,7 @@
     "id": "kinesiterapia-motora",
     "nombre": "Kinesiterapia motora",
     "categoria": "Kinesiología",
-    "orden": 22,
+    "orden": 20,
     "resumen": "Tratamiento kinésico para recuperar movilidad, fuerza y funcionalidad.",
     "descripcion": "La kinesiterapia motora aplica ejercicio terapéutico y técnicas manuales para recuperar movilidad, fuerza muscular y control del movimiento.\n\nSe indica en cuadros musculoesqueléticos, tras períodos de inmovilidad o reposo prolongado, y en procesos de rehabilitación funcional.\n\nCada sesión se ajusta a la evolución de la persona, con progresión gradual de la carga y del nivel de exigencia."
   },
@@ -186,7 +170,7 @@
     "id": "kinesiterapia-respiratoria",
     "nombre": "Kinesiterapia respiratoria (Aumento capacidad respiratoria y cardiovascular)",
     "categoria": "Kinesiología",
-    "orden": 23,
+    "orden": 21,
     "resumen": "Técnicas para mejorar la ventilación, despejar secreciones y aumentar la capacidad respiratoria.",
     "descripcion": "La kinesiterapia respiratoria utiliza técnicas específicas para mejorar la mecánica ventilatoria, facilitar la eliminación de secreciones y aumentar la tolerancia al esfuerzo.\n\nEstá indicada en cuadros respiratorios agudos y crónicos, y como apoyo en procesos de recuperación tras enfermedades que comprometen la función pulmonar.\n\nEl tratamiento incluye educación sobre ejercicios respiratorios que la persona puede continuar en su domicilio."
   },
@@ -194,7 +178,7 @@
     "id": "neuro-rehabilitacion-ges-85",
     "nombre": "Neuro Rehabilitación para pacientes GES 85",
     "categoria": "Kinesiología",
-    "orden": 24,
+    "orden": 22,
     "resumen": "Rehabilitación kinésica para personas con condiciones neurológicas cubiertas por el GES 85.",
     "descripcion": "La neurorrehabilitación kinésica busca recuperar o mantener la movilidad, el equilibrio y la funcionalidad de personas con compromiso neurológico.\n\nEl plan de tratamiento se define a partir de una evaluación inicial y se ajusta según la evolución de cada paciente.\n\nPara pacientes con garantía GES 85, consulte en el centro los requisitos y la documentación necesaria."
   },
@@ -202,7 +186,7 @@
     "id": "evaluacion-y-terapia-cognitiva",
     "nombre": "Evaluación y Terapia Cognitiva",
     "categoria": "Fonoaudiología",
-    "orden": 25,
+    "orden": 23,
     "resumen": "Evaluación y tratamiento de las funciones cognitivas asociadas a la comunicación.",
     "descripcion": "Se evalúan funciones como atención, memoria y funciones ejecutivas en su relación con el lenguaje y la comunicación.\n\nA partir de los resultados se diseña un plan de terapia con objetivos concretos, en niños y adultos.\n\nEl proceso se coordina con el resto del equipo tratante del centro."
   },
@@ -210,23 +194,15 @@
     "id": "evaluacion-fonoaudiologica",
     "nombre": "Evaluación fonoaudiológica",
     "categoria": "Fonoaudiología",
-    "orden": 26,
+    "orden": 24,
     "resumen": "Evaluación del lenguaje, el habla, la voz y la deglución.",
     "descripcion": "La evaluación fonoaudiológica examina las áreas del lenguaje comprensivo y expresivo, el habla, la voz y la deglución, según el motivo de consulta.\n\nEn niños permite detectar retrasos y trastornos del lenguaje que inciden en el aprendizaje; en adultos, evaluar alteraciones de la voz, del habla o de la deglución.\n\nEl resultado se entrega en un informe con orientaciones concretas y, cuando corresponde, un plan de terapia."
-  },
-  {
-    "id": "terapia-de-lenguaje-infantil",
-    "nombre": "Terapia de lenguaje infantil",
-    "categoria": "Fonoaudiología",
-    "orden": 27,
-    "resumen": "Intervención fonoaudiológica en retrasos y trastornos del lenguaje en la infancia.",
-    "descripcion": "La terapia de lenguaje infantil aborda retrasos y trastornos del desarrollo del lenguaje, dificultades de articulación y problemas de comprensión verbal.\n\nLas sesiones se estructuran mediante actividades lúdicas apropiadas a la edad, con objetivos definidos a partir de la evaluación inicial.\n\nEl trabajo incluye orientaciones para la familia, de manera que la estimulación continúe en la rutina diaria del niño o niña."
   },
   {
     "id": "terapia-de-habla-y-voz",
     "nombre": "Terapia de habla y voz",
     "categoria": "Fonoaudiología",
-    "orden": 28,
+    "orden": 25,
     "resumen": "Tratamiento de alteraciones de la voz, la fluidez y la articulación en adultos.",
     "descripcion": "La terapia de habla y voz trata alteraciones de la calidad vocal, de la fluidez y de la articulación, tanto de origen funcional como asociadas a condiciones médicas.\n\nEstá especialmente indicada en personas que usan la voz de forma profesional y presentan fatiga vocal, disfonía o pérdida de rendimiento.\n\nEl tratamiento combina ejercicios específicos con educación sobre higiene vocal y cuidado del aparato fonador."
   },
@@ -234,7 +210,7 @@
     "id": "evaluacion-y-terapia-de-deglucion",
     "nombre": "Evaluación y terapia de deglución",
     "categoria": "Fonoaudiología",
-    "orden": 29,
+    "orden": 26,
     "resumen": "Manejo de dificultades para tragar, con foco en seguridad y calidad de la alimentación.",
     "descripcion": "Las dificultades para tragar comprometen la seguridad de la alimentación y pueden derivar en complicaciones respiratorias y nutricionales.\n\nLa evaluación determina en qué fase de la deglución está la alteración y qué consistencias resultan seguras para la persona.\n\nLa terapia combina ejercicios específicos, ajustes en la consistencia de los alimentos y educación a la familia sobre posiciones y cuidados durante las comidas."
   }
