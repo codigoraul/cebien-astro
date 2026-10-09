@@ -9,6 +9,13 @@ const servicios = (await getCollection('servicios')).sort((a, b) => a.data.orden
 const categorias = [...new Set(servicios.map((s) => s.data.categoria))].map((categoria) => ({
   categoria,
   items: servicios.filter((s) => s.data.categoria === categoria),
+})).map((c) => ({
+  ...c,
+  // Agrupa por subcategoría si existe (ej. Terapia ocupacional: Geriatría / Salud Mental)
+  grupos: [...new Set(c.items.map((s) => s.data.subcategoria ?? ''))].map((sub) => ({
+    sub,
+    items: c.items.filter((s) => (s.data.subcategoria ?? '') === sub),
+  })),
 }));
 ---
 
@@ -30,9 +37,14 @@ const categorias = [...new Set(servicios.map((s) => s.data.categoria))].map((cat
         {categorias.map((c) => (
           <div class="bloque">
             <h2>{c.categoria}</h2>
-            <ul class="prestaciones">
-              {c.items.map((s) => <li>{s.data.nombre}</li>)}
-            </ul>
+            {c.grupos.map((g) => (
+              <>
+                {g.sub && <h3 class="subgrupo">{g.sub}</h3>}
+                <ul class="prestaciones">
+                  {g.items.map((s) => <li>{s.data.nombre}</li>)}
+                </ul>
+              </>
+            ))}
           </div>
         ))}
       </div>
@@ -62,6 +74,15 @@ const categorias = [...new Set(servicios.map((s) => s.data.categoria))].map((cat
     border-bottom: 1px solid var(--borde);
   }
 
+  .subgrupo {
+    font-size: .8rem;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--verde-700);
+    margin: 22px 0 12px;
+  }
+  .subgrupo:first-of-type { margin-top: 0; }
   .prestaciones { list-style: none; margin: 0; padding: 0; }
   .prestaciones li {
     position: relative;

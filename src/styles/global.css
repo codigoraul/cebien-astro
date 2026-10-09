@@ -24,8 +24,11 @@
   --texto: #3f4c59;
   --texto-suave: #6b7885;
   --borde: #e3e8ed;
-  --fondo: #ffffff;
-  --fondo-alt: #f6fafc;
+  /* Fondos: base cálida muy suave (no blanco puro) para que las tarjetas
+     blancas destaquen; secciones alternas con un degradado azul→verde de marca. */
+  --fondo: #f6f9f8;
+  --fondo-alt: #eaf4f8;
+  --fondo-tarjeta: #ffffff;
 
   --ancho: 1140px;
   --radio: 14px;
@@ -90,7 +93,20 @@ li { margin-bottom: .4em; }
 }
 
 .seccion { padding-block: clamp(56px, 7vw, 92px); }
-.seccion--alt { background: var(--fondo-alt); }
+.seccion--alt {
+  position: relative;
+  background:
+    radial-gradient(60% 80% at 100% 0%, rgba(107, 174, 60, .10), transparent 70%),
+    radial-gradient(50% 70% at 0% 100%, rgba(30, 150, 220, .10), transparent 70%),
+    linear-gradient(180deg, #edf6fb 0%, #f1f8ee 100%);
+  border-block: 1px solid rgba(30, 150, 220, .08);
+}
+
+/* Secciones claras: textura muy sutil de puntos para quitar el blanco plano */
+.seccion:not(.seccion--alt) {
+  background-image: radial-gradient(rgba(30, 150, 220, .07) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
 
 .seccion__intro { max-width: 720px; margin-bottom: 44px; }
 .seccion__intro p { color: var(--texto-suave); font-size: 1.05rem; margin-bottom: 0; }

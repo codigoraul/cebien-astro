@@ -1,5 +1,5 @@
 [
-  { "id": "benjamin-vicente-parada", "nombre": "Benjamín Vicente Parada", "cargo": "Director Médico", "area": "Dirección", "orden": 1 },
+  { "id": "benjamin-vicente-parada", "nombre": "Benjamín Vicente Parada", "cargo": "Psiquiatra", "detalle": "Director Médico", "area": "Dirección", "orden": 1 },
   { "id": "rodrigo-mosto-garcia", "nombre": "Rodrigo Mosto García", "cargo": "Médico Psiquiatra", "area": "Psiquiatría", "orden": 2 },
   { "id": "javier-reus-valenzuela", "nombre": "Javier Reus Valenzuela", "cargo": "Médico Psiquiatra", "area": "Psiquiatría", "orden": 3 },
   { "id": "marcela-toloza-gonzalez", "nombre": "Marcela Toloza González", "cargo": "Médico Psiquiatra", "area": "Psiquiatría", "orden": 4 },

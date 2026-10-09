@@ -2,9 +2,10 @@
 interface Props {
   nombre: string;
   cargo: string;
+  detalle?: string;
   foto?: string;
 }
-const { nombre, cargo, foto } = Astro.props;
+const { nombre, cargo, detalle, foto } = Astro.props;
 const iniciales = nombre
   .split(' ')
   .filter(Boolean)
@@ -22,6 +23,7 @@ const iniciales = nombre
   </div>
   <h3>{nombre}</h3>
   <p>{cargo}</p>
+  {detalle && <p class="profesional__detalle">{detalle}</p>}
 </article>
 
 <style>
@@ -55,4 +57,5 @@ const iniciales = nombre
 
   .profesional h3 { font-size: 1.02rem; margin-bottom: .25em; }
   .profesional p { font-size: .89rem; color: var(--texto-suave); margin: 0; }
+  .profesional .profesional__detalle { color: var(--azul-700); font-weight: 600; margin-top: 2px; }
 </style>

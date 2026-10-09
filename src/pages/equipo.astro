@@ -32,7 +32,7 @@ const clinicos = equipo.filter((p) => p.data.area !== 'Administración').length;
           <h2>{grupo.area}</h2>
           <div class="grilla grilla--4">
             {grupo.personas.map((p) => (
-              <TarjetaProfesional nombre={p.data.nombre} cargo={p.data.cargo} foto={p.data.foto} />
+              <TarjetaProfesional nombre={p.data.nombre} cargo={p.data.cargo} detalle={p.data.detalle} foto={p.data.foto} />
             ))}
           </div>
         </div>
