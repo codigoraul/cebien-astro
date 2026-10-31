@@ -19,21 +19,21 @@ const anio = new Date().getFullYear();
       </ul>
     </div>
 
-    <div>
-      <h3>Contacto</h3>
-      <ul class="pie__lista">
-        <li>{sitio.direccion.calle}<br />{sitio.direccion.ciudad}</li>
-        <li><a href={`tel:${sitio.telefono.fijoLink}`}>{sitio.telefono.fijo}</a></li>
-        <li><a href={`tel:${sitio.telefono.celularLink}`}>{sitio.telefono.celular}</a></li>
-        <li><a href={`mailto:${sitio.email}`}>{sitio.email}</a></li>
-      </ul>
-    </div>
 
     <div>
       <h3>Convenios</h3>
       <ul class="pie__lista">
         <li>Prestador de <a href={sitio.convenios.red.url} target="_blank" rel="noopener">RedGesam</a><br /><span class="pie__horario">convenio con todas las isapres abiertas</span></li>
         <li>Particular<br /><span class="pie__horario">FONASA</span></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Contacto</h3>
+      <ul class="pie__lista">
+        <li class="pie__dato"><svg class="pie__icono" width="16" height="16" style="color:#7cc8f2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></svg><span>{sitio.direccion.calle}<br />{sitio.direccion.ciudad}</span></li>
+        <li class="pie__dato"><svg class="pie__icono" width="16" height="16" style="color:#7cc8f2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-1.527 2.11a11.422 11.422 0 0 1-5.26-5.26l2.11-1.527a1.125 1.125 0 0 0 .417-1.173L6.113 4.59c-.124-.5-.575-.852-1.091-.852H3.75A2.25 2.25 0 0 0 1.5 6.75Z"/></svg><a href={`tel:${sitio.telefono.fijoLink}`}>{sitio.telefono.fijo}</a></li>
+        <li class="pie__dato"><svg class="pie__icono" width="16" height="16" style="color:#7cc8f2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3"/></svg><a href={`tel:${sitio.telefono.celularLink}`}>{sitio.telefono.celular}</a></li>
+        <li class="pie__dato"><svg class="pie__icono" width="16" height="16" style="color:#7cc8f2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></svg><a href={`mailto:${sitio.email}`}>{sitio.email}</a></li>
       </ul>
     </div>
   </div>
@@ -58,7 +58,7 @@ const anio = new Date().getFullYear();
   .pie__interior {
     display: grid;
     gap: 40px;
-    grid-template-columns: 1.6fr 1fr 1.2fr 1.2fr;
+    grid-template-columns: 1.5fr 1fr 1.2fr 1.4fr;
     padding-bottom: 48px;
   }
   .pie h3 {

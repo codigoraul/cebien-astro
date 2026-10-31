@@ -204,3 +204,8 @@ a.tarjeta:hover {
     transition-duration: .01ms !important;
   }
 }
+
+/* --- iconos de contacto (footer y barra superior) --- */
+:root { --celeste-icono: #7cc8f2; }
+.pie__dato { display: flex; align-items: flex-start; gap: 10px; }
+.pie__icono { flex-shrink: 0; margin-top: 4px; color: var(--celeste-icono); }
