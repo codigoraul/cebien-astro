@@ -30,7 +30,7 @@ const clinicos = equipo.filter((p) => p.data.area !== 'Administración').length;
       {areas.map((grupo) => (
         <div class="bloque">
           <h2>{grupo.area}</h2>
-          <div class="grilla grilla--4">
+          <div class="grilla grilla--equipo">
             {grupo.personas.map((p) => (
               <TarjetaProfesional nombre={p.data.nombre} cargo={p.data.cargo} detalle={p.data.detalle} foto={p.data.foto} />
             ))}
@@ -55,4 +55,18 @@ const clinicos = equipo.filter((p) => p.data.area !== 'Administración').length;
     padding-bottom: 12px;
     border-bottom: 1px solid var(--borde);
   }
+
+  .bloque :global(.grilla--equipo) {
+    --cols: 4;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 22px;
+  }
+  .bloque :global(.grilla--equipo > .profesional) {
+    width: calc((100% - (var(--cols) - 1) * 22px) / var(--cols));
+  }
+  @media (max-width: 1000px) { .bloque :global(.grilla--equipo) { --cols: 3; } }
+  @media (max-width: 720px)  { .bloque :global(.grilla--equipo) { --cols: 2; } }
+  @media (max-width: 440px)  { .bloque :global(.grilla--equipo) { --cols: 1; } }
 </style>

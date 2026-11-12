@@ -3,6 +3,7 @@ import { sitio, navegacion, enlaceWhatsapp } from '../data/sitio';
 const actual = Astro.url.pathname.replace(/\/$/, '') || '/';
 const esActivo = (href: string) =>
   href === '/' ? actual === '/' : actual === href || actual.startsWith(href + '/');
+const esExacto = (href: string) => actual === href;
 ---
 
 <header class="cabecera">
@@ -40,10 +41,20 @@ const esActivo = (href: string) =>
     <nav id="menu-principal" class="navegacion" aria-label="Menú principal">
       <ul>
         {navegacion.map((item) => (
-          <li>
+          <li class={item.submenu ? 'tiene-submenu' : undefined}>
             <a href={item.href} aria-current={esActivo(item.href) ? 'page' : undefined}>
               {item.texto}
+              {item.submenu && <svg class="flecha" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg>}
             </a>
+            {item.submenu && (
+              <ul class="submenu">
+                {item.submenu.map((sub) => (
+                  <li>
+                    <a href={sub.href} aria-current={esExacto(sub.href) ? 'location' : undefined}>{sub.texto}</a>
+                  </li>
+                ))}
+              </ul>
+            )}
           </li>
         ))}
       </ul>
@@ -171,6 +182,57 @@ const esActivo = (href: string) =>
     }
     .navegacion ul a[aria-current='page']::after { display: none; }
     .navegacion__cta { margin-top: 16px; }
+  }
+
+  /* --- submenú --- */
+  .navegacion li.tiene-submenu { position: relative; }
+  .flecha { margin-left: 5px; vertical-align: -1px; transition: transform .2s ease; }
+  .tiene-submenu:hover .flecha, .tiene-submenu:focus-within .flecha { transform: rotate(180deg); }
+  .navegacion ul.submenu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 200px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 8px;
+    background: #fff;
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+    box-shadow: var(--sombra);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .15s ease, visibility .15s ease;
+  }
+  .tiene-submenu:hover > .submenu,
+  .tiene-submenu:focus-within > .submenu { opacity: 1; visibility: visible; }
+  .navegacion .submenu a {
+    display: block;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: .93rem;
+    white-space: nowrap;
+  }
+  .navegacion .submenu a:hover { background: var(--azul-100); }
+  .navegacion .submenu a[aria-current='location'] { color: var(--azul-600); font-weight: 600; }
+  .navegacion .submenu a::after { display: none; }
+
+  @media (max-width: 940px) {
+    .flecha { display: none; }
+    .navegacion ul.submenu {
+      position: static;
+      transform: none;
+      opacity: 1;
+      visibility: visible;
+      min-width: 0;
+      padding: 0 0 0 18px;
+      border: 0;
+      box-shadow: none;
+      background: none;
+    }
+    .navegacion .submenu a { padding: 11px 4px; border-radius: 0; font-size: .9rem; color: var(--texto-suave); }
   }
 </style>
 

@@ -55,10 +55,19 @@ export const mensajeWhatsapp =
 /** Enlace de WhatsApp con el mensaje ya escrito (usar en todos los botones) */
 export const enlaceWhatsapp = `https://wa.me/${sitio.telefono.whatsapp}?text=${encodeURIComponent(mensajeWhatsapp)}`;
 
-export const navegacion = [
+export type ItemNavegacion = { href: string; texto: string; submenu?: { href: string; texto: string }[] };
+
+export const navegacion: ItemNavegacion[] = [
   { href: '/', texto: 'Inicio' },
   { href: '/nosotros', texto: 'Nosotros' },
   { href: '/servicios', texto: 'Servicios' },
-  { href: '/equipo', texto: 'Equipo' },
+  {
+    href: '/equipo',
+    texto: 'Equipo',
+    submenu: [
+      { href: '/equipo', texto: 'Fotos verticales' },
+      { href: '/equipo/rostros', texto: 'Fotos circulares' },
+    ],
+  },
   { href: '/contacto', texto: 'Contacto' },
 ];
