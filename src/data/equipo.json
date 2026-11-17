@@ -1,7 +1,7 @@
 [
   {"id": "benjamin-vicente-parada", "nombre": "Benjamín Vicente Parada", "cargo": "Psiquiatra", "detalle": "Director Médico", "area": "Dirección", "orden": 1, "foto": "/img/equipo/benjamin-vicente-parada.webp"},
   {"id": "rodrigo-mosto-garcia", "nombre": "Rodrigo Mosto García", "cargo": "Médico Psiquiatra", "area": "Psiquiatría", "orden": 2, "foto": "/img/equipo/rodrigo-mosto-garcia.webp"},
-  {"id": "javier-reus-valenzuela", "nombre": "Javier Reus Valenzuela", "cargo": "Médico Psiquiatra", "area": "Psiquiatría", "orden": 3},
+  {"id": "javier-reus-valenzuela", "nombre": "Javier Reus Valenzuela", "cargo": "Médico Psiquiatra", "area": "Psiquiatría", "orden": 3, "foto": "/img/equipo/javier-reus-valenzuela.webp"},
   {"id": "marcela-toloza-gonzalez", "nombre": "Marcela Toloza González", "cargo": "Médico Psiquiatra", "area": "Psiquiatría", "orden": 4},
   {"id": "marcela-rocha-gonzalez", "nombre": "Marcela Rocha González", "cargo": "Médico Psiquiatra", "area": "Psiquiatría", "orden": 5, "foto": "/img/equipo/marcela-rocha-gonzalez.webp"},
   {"id": "rodolfo-hinrichs-loosli", "nombre": "Rodolfo Hinrichs Loosli", "cargo": "Médico Integral", "area": "Medicina integral", "orden": 6, "foto": "/img/equipo/rodolfo-hinrichs-loosli.webp"},
@@ -20,9 +20,8 @@
   {"id": "catalina-torres-cisterna", "nombre": "Catalina Torres Cisterna", "cargo": "Terapeuta Ocupacional", "area": "Terapia ocupacional", "orden": 19, "foto": "/img/equipo/catalina-torres-cisterna.webp"},
   {"id": "camila-yanez-rivera", "nombre": "Camila Yáñez Rivera", "cargo": "Terapeuta Ocupacional", "area": "Terapia ocupacional", "orden": 20, "foto": "/img/equipo/camila-yanez-rivera.webp"},
   {"id": "marcelo-polanco-villar", "nombre": "Marcelo Polanco Villar", "cargo": "Kinesiólogo", "area": "Kinesiología", "orden": 21, "foto": "/img/equipo/marcelo-polanco-villar.webp"},
-  {"id": "enrique-merino-munoz", "nombre": "Enrique Merino Muñoz", "cargo": "Kinesiólogo", "area": "Kinesiología", "orden": 22},
+  {"id": "enrique-merino-munoz", "nombre": "Enrique Merino Muñoz", "cargo": "Kinesiólogo", "area": "Kinesiología", "orden": 22, "foto": "/img/equipo/enrique-merino-munoz.webp"},
   {"id": "paulina-palma-cespedes", "nombre": "Paulina Palma Céspedes", "cargo": "Kinesióloga", "area": "Kinesiología", "orden": 23, "foto": "/img/equipo/paulina-palma-cespedes.webp"},
   {"id": "caroline-fierro-fierro", "nombre": "Caroline Fierro Fierro", "cargo": "Coordinadora", "area": "Administración", "orden": 24, "foto": "/img/equipo/caroline-fierro-fierro.webp"},
-  {"id": "nelda-garcia-sanhueza", "nombre": "Nelda García Sanhueza", "cargo": "Secretaria", "area": "Administración", "orden": 25, "foto": "/img/equipo/nelda-garcia-sanhueza.webp"},
-  {"id": "margarita-quezada-valenzuela", "nombre": "Margarita Quezada Valenzuela", "cargo": "Auxiliar", "area": "Administración", "orden": 26}
+  {"id": "nelda-garcia-sanhueza", "nombre": "Nelda García Sanhueza", "cargo": "Secretaria", "area": "Administración", "orden": 25, "foto": "/img/equipo/nelda-garcia-sanhueza.webp"}
 ]
