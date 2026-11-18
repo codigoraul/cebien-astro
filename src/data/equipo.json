@@ -2,7 +2,7 @@
   {"id": "benjamin-vicente-parada", "nombre": "Benjamín Vicente Parada", "cargo": "Psiquiatra", "detalle": "Director Médico", "area": "Dirección", "orden": 1, "foto": "/img/equipo/benjamin-vicente-parada.webp"},
   {"id": "rodrigo-mosto-garcia", "nombre": "Rodrigo Mosto García", "cargo": "Médico Psiquiatra", "area": "Psiquiatría", "orden": 2, "foto": "/img/equipo/rodrigo-mosto-garcia.webp"},
   {"id": "javier-reus-valenzuela", "nombre": "Javier Reus Valenzuela", "cargo": "Médico Psiquiatra", "area": "Psiquiatría", "orden": 3, "foto": "/img/equipo/javier-reus-valenzuela.webp"},
-  {"id": "marcela-toloza-gonzalez", "nombre": "Marcela Toloza González", "cargo": "Médico Psiquiatra", "area": "Psiquiatría", "orden": 4},
+  {"id": "marcela-toloza-gonzalez", "nombre": "Marcela Toloza González", "cargo": "Médico Psiquiatra", "area": "Psiquiatría", "orden": 4, "foto": "/img/equipo/marcela-toloza-gonzalez.webp"},
   {"id": "marcela-rocha-gonzalez", "nombre": "Marcela Rocha González", "cargo": "Médico Psiquiatra", "area": "Psiquiatría", "orden": 5, "foto": "/img/equipo/marcela-rocha-gonzalez.webp"},
   {"id": "rodolfo-hinrichs-loosli", "nombre": "Rodolfo Hinrichs Loosli", "cargo": "Médico Integral", "area": "Medicina integral", "orden": 6, "foto": "/img/equipo/rodolfo-hinrichs-loosli.webp"},
   {"id": "maria-fernanda-munoz-mirabal", "nombre": "María Fernanda Muñoz Mirabal", "cargo": "Médico Integral", "area": "Medicina integral", "orden": 7, "foto": "/img/equipo/maria-fernanda-munoz-mirabal.webp"},
