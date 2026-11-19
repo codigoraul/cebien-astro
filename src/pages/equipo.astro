@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import Encabezado from '../components/Encabezado.astro';
-import TarjetaProfesional from '../components/TarjetaProfesional.astro';
+import TarjetaProfesional from '../components/TarjetaProfesionalRedonda.astro';
 import LlamadoContacto from '../components/LlamadoContacto.astro';
 
 const equipo = (await getCollection('equipo')).sort((a, b) => a.data.orden - b.data.orden);
@@ -32,7 +32,7 @@ const clinicos = equipo.filter((p) => p.data.area !== 'Administración').length;
           <h2>{grupo.area}</h2>
           <div class="grilla grilla--equipo">
             {grupo.personas.map((p) => (
-              <TarjetaProfesional nombre={p.data.nombre} cargo={p.data.cargo} detalle={p.data.detalle} foto={p.data.foto} />
+              <TarjetaProfesional nombre={p.data.nombre} cargo={p.data.cargo} detalle={p.data.detalle} foto={p.data.foto?.replace('/img/equipo/', '/img/equipo/rostro/')} />
             ))}
           </div>
         </div>

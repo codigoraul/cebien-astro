@@ -61,13 +61,6 @@ export const navegacion: ItemNavegacion[] = [
   { href: '/', texto: 'Inicio' },
   { href: '/nosotros', texto: 'Nosotros' },
   { href: '/servicios', texto: 'Servicios' },
-  {
-    href: '/equipo',
-    texto: 'Equipo',
-    submenu: [
-      { href: '/equipo', texto: 'Fotos verticales' },
-      { href: '/equipo/rostros', texto: 'Fotos circulares' },
-    ],
-  },
+  { href: '/equipo', texto: 'Equipo' },
   { href: '/contacto', texto: 'Contacto' },
 ];
